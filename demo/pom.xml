@@ -30,6 +30,35 @@
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.4.2</version>
+          <dependencies>
+            <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+            <dependency>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs</artifactId>
+              <version>4.4.2</version>
+            </dependency>
+          </dependencies>
+        </plugin>    
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.4.2</version>
+          <configuration>
+              <includeFilterFile>spotbugs-security-include.xml</includeFilterFile>
+              <excludeFilterFile>spotbugs-security-exclude.xml</excludeFilterFile>
+              <plugins>
+                  <plugin>
+                      <groupId>com.h3xstream.findsecbugs</groupId>
+                      <artifactId>findsecbugs-plugin</artifactId>
+                      <version>1.10.1</version>
+                  </plugin>
+              </plugins>
+          </configuration>
+      </plugin>            
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
