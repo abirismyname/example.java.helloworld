@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: pmd-security-scan
 
 # Controls when the workflow will run
 on:
@@ -34,7 +34,7 @@ jobs:
         with:
           analyse-all-code: 'true'
           pmd-version: 'latest'
-          file-path: './src'
+          file-path: './demo/src'
           rules-path: 'rulesets/java/quickstart.xml'
       - name: Run PMD Analysis on Files Changed
         id: pmd-partial-analysis
@@ -42,10 +42,8 @@ jobs:
         uses: abirismyname/pmd@master
         with:
           pmd-version: 'latest'
-          file-path: './src'
-          rules-path: './pmd-ruleset.xml'
-          error-rules: 'AvoidDirectAccessTriggerMap,AvoidDmlStatementsInLoops,AvoidHardcodingId'
-          note-rules: 'ApexDoc'
+          file-path: './demo/src'
+          rules-path: 'rulesets/java/quickstart.xml'
       - name: Upload results to GitHub
         uses: github/codeql-action/upload-sarif@v1
         with:
