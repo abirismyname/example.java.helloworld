@@ -35,9 +35,9 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn -B package --file demo/pom.xml
-      - name: Build with Maven
-        run: mvn spotbugs:check --file demo/pom.xml -Ddetail=true -Dspotbugs.sarifOutput=true
-      - name: Upload mobsfscan report
+      - name: SpotBug Scan
+        run: mvn spotbugs:spotbugs --file demo/pom.xml -Ddetail=true -Dspotbugs.sarifOutput=true
+      - name: Upload report
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: demo/target/spotbugsSarif.json
