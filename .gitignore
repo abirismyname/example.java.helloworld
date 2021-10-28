@@ -10,3 +10,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+demo/target/spotbugsSarif.json
+demo/target/spotbugsXml.xml
+demo/target/spotbugsXml.xml
+demo/.DS_Store
