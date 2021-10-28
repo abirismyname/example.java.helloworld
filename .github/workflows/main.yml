@@ -34,7 +34,7 @@ jobs:
         with:
           analyse-all-code: 'true'
           pmd-version: 'latest'
-          file-path: './HelloWorld'
+          file-path: './src'
           rules-path: 'rulesets/java/quickstart.xml'
       - name: Run PMD Analysis on Files Changed
         id: pmd-partial-analysis
