@@ -14,3 +14,5 @@ demo/target/spotbugsSarif.json
 demo/target/spotbugsXml.xml
 demo/target/spotbugsXml.xml
 demo/.DS_Store
+demo/spot*
+.DS_Store
