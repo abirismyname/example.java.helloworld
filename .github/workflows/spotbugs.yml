@@ -42,11 +42,11 @@ jobs:
           target: 'demo/target/demo-1.0-SNAPSHOT.jar'
           output: 'results.sarif'
           spotbugs-version: 'latest' 
-      - id: results
-        run: |
-          OUTPUT=$(cat results.sarif)
-          FORMATTED=${OUTPUT//$'\n'/%0A}
-          echo ::set-output name=file::**Django Security Check identified issues:** %0A$FORMATTED          
+      - name: Upload output
+        uses: actions/upload-artifact@v2
+        with:
+          name: security-check-output
+          path: results.sarif     
       - name: Upload report
         uses: github/codeql-action/upload-sarif@v1
         with:
